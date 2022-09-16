@@ -6,10 +6,7 @@
 //
 
 import Foundation
-
-//struct Response: Decodable {
-//    [PictureData]
-//}
+import UIKit
 
 struct PictureData: Decodable {
     let id: String
@@ -27,4 +24,9 @@ struct PictureData: Decodable {
         self.url = url
         self.download_url = url 
     }
+}
+
+struct FinalPicture {
+    let author: String
+    let image: UIImage
 }

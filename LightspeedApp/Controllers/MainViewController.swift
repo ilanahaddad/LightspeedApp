@@ -10,17 +10,27 @@ import UIKit
 class MainViewController: UIViewController {
     @IBOutlet weak var pictureTableView: UITableView!
     
-    var allPictures = [PictureData]()
-    var randomPictures = [PictureData]()
-    var imagesForRandomPictures = [String:UIImage]()
+    var allPictures = [FinalPicture]()
+    var randomPictures = [FinalPicture]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         pictureTableView.dataSource = self
         pictureTableView.delegate = self
         
+        getPictureData()
+    }
+    
+    private func getPictureData() {
         APIManager().getPictures { pictures in
-            self.allPictures = pictures
+            for pic in pictures {
+                if let imageURL = URL(string: pic.download_url),
+                   let data = try? Data(contentsOf: imageURL),
+                   let image = UIImage(data: data) {
+                    let finalPic = FinalPicture(author: pic.author, image: image)
+                    self.allPictures.append(finalPic)
+                }
+            }
         }
     }
 
@@ -29,14 +39,6 @@ class MainViewController: UIViewController {
         let randomNumber = Int.random(in: 0...(totalNumPictures-1))
         let randomPicture = allPictures[randomNumber]
         
-        // Load image for that random picture and store it in dictionary
-        if let imageURL = URL(string: randomPicture.download_url) {
-            if let data = try? Data(contentsOf: imageURL) {
-                if let image = UIImage(data: data) {
-                    imagesForRandomPictures["\(randomPictures.count)"] = image
-                }
-            }
-        }
         randomPictures.append(randomPicture)
         pictureTableView.reloadData()
     }
@@ -54,7 +56,8 @@ extension MainViewController: UITableViewDataSource {
         
         let picture = randomPictures[indexPath.row]
         cell.authorValueLabel.text = picture.author
-        cell.pictureImageView.image = imagesForRandomPictures["\(indexPath.row)"]
+        cell.pictureImageView.image = picture.image
+        
         return cell
     }
 }
