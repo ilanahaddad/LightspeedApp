@@ -13,13 +13,14 @@
 		F6D0A63128CFD3250083A4AA /* LightspeedApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6D0A62F28CFD3250083A4AA /* LightspeedApp.xcdatamodeld */; };
 		F6D0A63328CFD3270083A4AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6D0A63228CFD3270083A4AA /* Assets.xcassets */; };
 		F6D0A63628CFD3270083A4AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6D0A63428CFD3270083A4AA /* LaunchScreen.storyboard */; };
-		F6D0A64128CFD3280083A4AA /* LightspeedAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D0A64028CFD3280083A4AA /* LightspeedAppTests.swift */; };
+		F6D0A64128CFD3280083A4AA /* LightspeedAppUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D0A64028CFD3280083A4AA /* LightspeedAppUnitTests.swift */; };
 		F6D0A64B28CFD3280083A4AA /* LightspeedAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D0A64A28CFD3280083A4AA /* LightspeedAppUITests.swift */; };
 		F6D0A64D28CFD3280083A4AA /* LightspeedAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D0A64C28CFD3280083A4AA /* LightspeedAppUITestsLaunchTests.swift */; };
 		F6D0A65A28CFD6430083A4AA /* PictureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D0A65928CFD6430083A4AA /* PictureData.swift */; };
-		F6D0A65C28CFD92B0083A4AA /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D0A65B28CFD92B0083A4AA /* APIManager.swift */; };
 		F6D0A66228D3C0190083A4AA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D0A66128D3C0190083A4AA /* MainViewController.swift */; };
 		F6D0A66428D3C0B30083A4AA /* PictureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D0A66328D3C0B30083A4AA /* PictureTableViewCell.swift */; };
+		F6D0A66928D4CD500083A4AA /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D0A66828D4CD500083A4AA /* APIManager.swift */; };
+		F6D0A66B28D4EE810083A4AA /* LightspeedAppIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D0A66A28D4EE810083A4AA /* LightspeedAppIntegrationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,14 +50,15 @@
 		F6D0A63528CFD3270083A4AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6D0A63728CFD3270083A4AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6D0A63C28CFD3280083A4AA /* LightspeedAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightspeedAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6D0A64028CFD3280083A4AA /* LightspeedAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightspeedAppTests.swift; sourceTree = "<group>"; };
+		F6D0A64028CFD3280083A4AA /* LightspeedAppUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightspeedAppUnitTests.swift; sourceTree = "<group>"; };
 		F6D0A64628CFD3280083A4AA /* LightspeedAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightspeedAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D0A64A28CFD3280083A4AA /* LightspeedAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightspeedAppUITests.swift; sourceTree = "<group>"; };
 		F6D0A64C28CFD3280083A4AA /* LightspeedAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightspeedAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F6D0A65928CFD6430083A4AA /* PictureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureData.swift; sourceTree = "<group>"; };
-		F6D0A65B28CFD92B0083A4AA /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		F6D0A66128D3C0190083A4AA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F6D0A66328D3C0B30083A4AA /* PictureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureTableViewCell.swift; sourceTree = "<group>"; };
+		F6D0A66828D4CD500083A4AA /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		F6D0A66A28D4EE810083A4AA /* LightspeedAppIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightspeedAppIntegrationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +126,8 @@
 		F6D0A63F28CFD3280083A4AA /* LightspeedAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				F6D0A64028CFD3280083A4AA /* LightspeedAppTests.swift */,
+				F6D0A64028CFD3280083A4AA /* LightspeedAppUnitTests.swift */,
+				F6D0A66A28D4EE810083A4AA /* LightspeedAppIntegrationTests.swift */,
 			);
 			path = LightspeedAppTests;
 			sourceTree = "<group>";
@@ -150,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				F6D0A65928CFD6430083A4AA /* PictureData.swift */,
-				F6D0A65B28CFD92B0083A4AA /* APIManager.swift */,
+				F6D0A66828D4CD500083A4AA /* APIManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,9 +297,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6D0A65C28CFD92B0083A4AA /* APIManager.swift in Sources */,
 				F6D0A63128CFD3250083A4AA /* LightspeedApp.xcdatamodeld in Sources */,
 				F6D0A65A28CFD6430083A4AA /* PictureData.swift in Sources */,
+				F6D0A66928D4CD500083A4AA /* APIManager.swift in Sources */,
 				F6D0A62728CFD3250083A4AA /* AppDelegate.swift in Sources */,
 				F6D0A66228D3C0190083A4AA /* MainViewController.swift in Sources */,
 				F6D0A62928CFD3250083A4AA /* SceneDelegate.swift in Sources */,
@@ -308,7 +311,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6D0A64128CFD3280083A4AA /* LightspeedAppTests.swift in Sources */,
+				F6D0A64128CFD3280083A4AA /* LightspeedAppUnitTests.swift in Sources */,
+				F6D0A66B28D4EE810083A4AA /* LightspeedAppIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

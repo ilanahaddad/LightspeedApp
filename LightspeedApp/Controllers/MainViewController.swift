@@ -15,14 +15,16 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         pictureTableView.dataSource = self
         pictureTableView.delegate = self
+        pictureTableView.accessibilityIdentifier = "pictureTableView"
         
         getPictureData()
     }
     
     private func getPictureData() {
-        APIManager().getPictures { pictures in
+        APIManager().fetchPictureDataFromAPI { pictures in
             for pic in pictures {
                 if let imageURL = URL(string: pic.download_url),
                    let data = try? Data(contentsOf: imageURL),
