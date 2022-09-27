@@ -15,7 +15,7 @@ class LightspeedAppIntegrationTests: XCTestCase {
         var response: [PictureData]?
         let expectation = self.expectation(description: "Response Time under 60 seconds")
         
-        apiManager.fetchPictureDataFromAPI(completionHandler: { pictures in
+        apiManager.fetchPictureDataFromAPI(completionHandler: { pictures, error in
             response = pictures
             expectation.fulfill()
         })

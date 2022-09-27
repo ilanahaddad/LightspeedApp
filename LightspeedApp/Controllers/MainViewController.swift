@@ -9,6 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     @IBOutlet weak var pictureTableView: UITableView!
+    @IBOutlet weak var fetchButton: UIButton!
     
     var allPictures = [FinalPicture]()
     var randomPictures = [FinalPicture]()
@@ -20,28 +21,46 @@ class MainViewController: UIViewController {
         pictureTableView.delegate = self
         pictureTableView.accessibilityIdentifier = "pictureTableView"
         
+//        fetchButton.isEnabled = false
         getPictureData()
     }
     
     private func getPictureData() {
-        APIManager().fetchPictureDataFromAPI { pictures in
-            for pic in pictures {
-                if let imageURL = URL(string: pic.download_url),
-                   let data = try? Data(contentsOf: imageURL),
-                   let image = UIImage(data: data) {
-                    let finalPic = FinalPicture(author: pic.author, image: image)
-                    self.allPictures.append(finalPic)
+        APIManager().fetchPictureDataFromAPI { pictures, error in
+            if let e = error {
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "\(e.localizedDescription)", message: "", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                    NSLog("The \"OK\" alert occured.")
+                    }))
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
+            if let pictures = pictures {
+                for pic in pictures {
+                    if let imageURL = URL(string: pic.download_url),
+                       let data = try? Data(contentsOf: imageURL),
+                       let image = UIImage(data: data) {
+                        let finalPic = FinalPicture(author: pic.author, image: image)
+                        self.allPictures.append(finalPic)
+                    }
+                }
+            }
+            
         }
     }
 
     @IBAction func fetchRandomImagePressed(_ sender: UIButton) {
-        let totalNumPictures = allPictures.count
-        let randomNumber = Int.random(in: 0...(totalNumPictures-1))
-        let randomPicture = allPictures[randomNumber]
+        if let randomPicture = APIManager().fetchRandomImage(allPictures: allPictures) {
+            randomPictures.append(randomPicture)
+        } else {
+            let alert = UIAlertController(title: "No image to display. Please try again.", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
         
-        randomPictures.append(randomPicture)
         pictureTableView.reloadData()
     }
 }

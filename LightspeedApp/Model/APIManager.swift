@@ -19,20 +19,33 @@ struct APIManager: APIRequest {
         return try JSONDecoder().decode([PictureData].self, from: data)
     }
     
-    func fetchPictureDataFromAPI(completionHandler: @escaping ([PictureData]) -> Void) {
-        guard let request = try? makeRequest(from: "https://picsum.photos/v2/list") else {
+    func fetchPictureDataFromAPI(completionHandler: @escaping ([PictureData]?, Error?) -> Void) {
+        guard let request = try? makeRequest(from: "https://picsum.photos/v2/list222") else {
             return
         }
+//        guard let request = try? makeRequest(from: "https://picsum.photos/v2/list") else {
+//            return
+//        }
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else { return }
             do {
                 let pictures = try self.parseResponse(data: data)
-                completionHandler(pictures)
+                completionHandler(pictures, nil)
             } catch let e {
+                completionHandler(nil, e)
                 print("Error parsing data: \(e.localizedDescription)")
             }
         }.resume()
+    }
+    
+    func fetchRandomImage(allPictures: [FinalPicture]) -> FinalPicture? {
+        let totalNumPictures = allPictures.count
+        if !allPictures.isEmpty {
+            let randomNumber = Int.random(in: 0...(totalNumPictures-1))
+            return allPictures[randomNumber]
+        }
+        return nil
     }
 }
 

@@ -24,4 +24,20 @@ class LightspeedAppUnitTests: XCTestCase {
         XCTAssertTrue(response.count == 1)
         XCTAssertTrue(response[0].author == "Author")
     }
+    
+    func testNoImages() throws {
+        let allPictures = [FinalPicture]()
+        let randomPic = APIManager().fetchRandomImage(allPictures: allPictures)
+        XCTAssertNil(randomPic)
+    }
+    
+    func testRandomImage() throws {
+        let picture1 = FinalPicture(author: "author1", image: UIImage())
+        let picture2 = FinalPicture(author: "author2", image: UIImage())
+        let picture3 = FinalPicture(author: "author3", image: UIImage())
+        let picture4 = FinalPicture(author: "author4", image: UIImage())
+        let pictures = [picture1, picture2, picture3, picture4]
+        let randomPic = APIManager().fetchRandomImage(allPictures: pictures)
+        XCTAssertNotNil(randomPic)
+    }
 }
